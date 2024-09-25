@@ -1,5 +1,6 @@
 package assessment.demo.pages;
 
+import assessment.demo.Utils.Reusables;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -7,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.time.Duration;
 
-public class CheckOutUserPage {
+public class CheckOutUserPage extends Reusables {
     WebDriver driver;
 
     public CheckOutUserPage(WebDriver driver) {
@@ -26,13 +27,13 @@ public class CheckOutUserPage {
 
 
     public void filluserdetails(String firstname,String lastname,String postalcode) throws InterruptedException {
-        firstnametextfield.sendKeys(firstname);
-        lastnametextfield.sendKeys(lastname);
-        postalcodefield.sendKeys(postalcode);
-//        Thread.sleep(2000);
+        clearandentervalues(firstnametextfield,firstname);
+        clearandentervalues(lastnametextfield,lastname);
+        clearandentervalues(postalcodefield,postalcode);
+        Thread.sleep(2000);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
         continuebutton.click();
-//        Thread.sleep(2000);
+        Thread.sleep(2000);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
     }
 

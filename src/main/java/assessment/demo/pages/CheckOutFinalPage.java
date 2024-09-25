@@ -1,6 +1,7 @@
 package assessment.demo.pages;
 
 import assessment.demo.Utils.ReportListener;
+import assessment.demo.Utils.Reusables;
 import assessment.demo.Utils.Screenshot;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,7 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.time.Duration;
 
-public class CheckOutFinalPage {
+public class CheckOutFinalPage extends Reusables {
     WebDriver driver;
 
     public CheckOutFinalPage(WebDriver driver) {
@@ -26,21 +27,19 @@ public class CheckOutFinalPage {
 
     public void checkoutActions(String finalaction) throws InterruptedException {
 
-        String checkoutscreenshotpath = Screenshot.captureScreenshot(driver,"CheckOutFinal");
-        ReportListener.attachscreenshot(checkoutscreenshotpath);
-
+        getscreenshot("CheckoutFinalPage",driver);
         driver.findElement(By.id(finalaction)).click();
-//        Thread.sleep(2000);
+        Thread.sleep(2000);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+        getscreenshot("OnFinalAction",driver);
+    }
 
+    public void logout() throws InterruptedException {
         leftMenuIcon.click();
-//        Thread.sleep(1000);
+        Thread.sleep(1000);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
-
         logoutButton.click();
-//        Thread.sleep(1000);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
-
+        Thread.sleep(1000);
     }
 
 }

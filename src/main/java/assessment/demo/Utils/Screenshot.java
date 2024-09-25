@@ -18,8 +18,8 @@ public class Screenshot {
         String fileName = screenshotName + "_" + timestamp + ".png";
         String destinationPath = System.getProperty("user.dir") + "/extent-reports/screenshots/" + fileName;
 
-        TakesScreenshot ts = (TakesScreenshot) driver;
-        File source = ts.getScreenshotAs(OutputType.FILE);
+        TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
+        File source = takesScreenshot.getScreenshotAs(OutputType.FILE);
 
         try {
             File destination = new File(destinationPath);
@@ -28,7 +28,6 @@ public class Screenshot {
         } catch (IOException e) {
             System.out.println("Failed to capture screenshot: " + e.getMessage());
         }
-
         return destinationPath;
     }
 }

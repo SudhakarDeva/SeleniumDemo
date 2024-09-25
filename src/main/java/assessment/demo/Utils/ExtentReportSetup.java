@@ -25,8 +25,8 @@ public class ExtentReportSetup {
 
         extent = new ExtentReports();
         extent.attachReporter(sparkReporter);
-        extent.setSystemInfo("Sudhakar", "Tester");
-        extent.setSystemInfo("Environment", "Local");
+        extent.setSystemInfo("RunMode", "Local");
+        extent.setSystemInfo("Environment", "Test");
 
         return extent;
     }

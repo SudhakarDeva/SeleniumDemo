@@ -39,7 +39,7 @@ public class ReportListener extends BaseClass implements ITestListener {
         extentTest.get().log(Status.FAIL, result.getThrowable());
 
         WebDriver driver = ((BaseClass) result.getInstance()).driver;
-        String screenshotPath = Screenshot.captureScreenshot(driver, result.getMethod().getMethodName());
+        String screenshotPath = Screenshot.captureScreenshot(driver, "FailureScreen");
         attachscreenshot(screenshotPath);
     }
 
@@ -47,7 +47,7 @@ public class ReportListener extends BaseClass implements ITestListener {
         try {
             extentTest.get().addScreenCaptureFromPath(screenshotPath);
         } catch (Exception e) {
-            extentTest.get().log(Status.FAIL, "Failed to attach screenshot: " + e.getMessage());
+            extentTest.get().log(Status.FAIL, "Screenshot attachment failed: " + e.getMessage());
         }
     }
 

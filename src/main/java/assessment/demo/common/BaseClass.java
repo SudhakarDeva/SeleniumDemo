@@ -18,12 +18,10 @@ public class BaseClass {
 
     @BeforeMethod
     public void setUp() throws InterruptedException {
-//        System.setProperty("webdriver.chrome.driver","C:\\Users\\User\\Documents\\SeleniumData\\BrowserDrivers\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
-//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
     }
 
     @AfterMethod

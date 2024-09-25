@@ -1,6 +1,7 @@
 package assessment.demo.pages;
 
 
+import assessment.demo.Utils.Reusables;
 import assessment.demo.common.BaseClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,8 +12,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
-public class Loginpage {
+public class Loginpage extends Reusables {
 
     WebDriver driver;
 
@@ -31,17 +33,16 @@ public class Loginpage {
 
     }
 
-    public void loginActions(String name,String pwd)
-    {
+    public void loginActions(String name,String pwd) throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOf(username));
-        username.clear();
-        username.sendKeys(name);
-        password.clear();
-        password.sendKeys(pwd);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+        clearandentervalues(username,name);
+        clearandentervalues(password,pwd);
+        driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
+        Thread.sleep(2000);
         loginbutton.click();
         System.out.println("Login actions completed");
+        Thread.sleep(2000);
     }
 
 }
