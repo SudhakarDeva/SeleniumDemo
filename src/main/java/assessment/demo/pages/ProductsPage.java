@@ -28,7 +28,8 @@ public class ProductsPage {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.findElement(By.id("add-to-cart-sauce-labs-" + itemname)).click();
         System.out.println("Added " + itemname + " to the cart");
-        Thread.sleep(3000);
+//        Thread.sleep(3000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         String status = null;
         try {
             System.out.println("Items added to cart : " + cartCount.getText());
@@ -37,7 +38,8 @@ public class ProductsPage {
             status = "fail";
             }
         cartIcon.click();
-        Thread.sleep(2000);
+//        Thread.sleep(2000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
         return status;
     }
 

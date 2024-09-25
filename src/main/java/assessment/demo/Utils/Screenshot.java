@@ -13,14 +13,11 @@ import java.util.Date;
 
 public class Screenshot {
 
-    // Method to capture a screenshot
     public static String captureScreenshot(WebDriver driver, String screenshotName) {
-        // Create a timestamp to make each screenshot name unique
         String timestamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
         String fileName = screenshotName + "_" + timestamp + ".png";
         String destinationPath = System.getProperty("user.dir") + "/extent-reports/screenshots/" + fileName;
 
-        // Create a screenshot and save it to the specified location
         TakesScreenshot ts = (TakesScreenshot) driver;
         File source = ts.getScreenshotAs(OutputType.FILE);
 

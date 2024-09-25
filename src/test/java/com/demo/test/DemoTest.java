@@ -11,7 +11,6 @@ public class DemoTest extends BaseClass {
     @Test(dataProvider="testdata",dataProviderClass = TestdataUtil.class)
     public void demoFlow(String user,String pwd,String product,String firstname,String lastname,String postalcode,String finalaction) throws InterruptedException {
     driver.get("https://www.saucedemo.com/");
-//        Thread.sleep(5000);
     Loginpage login = new Loginpage(driver);
     login.loginActions(user,pwd);
     System.out.println(driver.getCurrentUrl());

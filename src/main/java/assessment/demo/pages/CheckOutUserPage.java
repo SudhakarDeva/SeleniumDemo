@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.time.Duration;
+
 public class CheckOutUserPage {
     WebDriver driver;
 
@@ -27,9 +29,11 @@ public class CheckOutUserPage {
         firstnametextfield.sendKeys(firstname);
         lastnametextfield.sendKeys(lastname);
         postalcodefield.sendKeys(postalcode);
-        Thread.sleep(2000);
+//        Thread.sleep(2000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
         continuebutton.click();
-        Thread.sleep(2000);
+//        Thread.sleep(2000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
     }
 
 }

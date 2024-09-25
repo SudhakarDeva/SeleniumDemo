@@ -39,7 +39,7 @@ public class Loginpage {
         username.sendKeys(name);
         password.clear();
         password.sendKeys(pwd);
-
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
         loginbutton.click();
         System.out.println("Login actions completed");
     }

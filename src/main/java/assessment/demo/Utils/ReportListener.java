@@ -15,35 +15,29 @@ public class ReportListener extends BaseClass implements ITestListener {
 
     @Override
     public void onStart(ITestContext context) {
-        // Called when the test suite starts
     }
 
     @Override
     public void onFinish(ITestContext context) {
-        // Write the Extent Report to file
         extent.flush();
     }
 
     @Override
     public void onTestStart(ITestResult result) {
-        // Create a new test entry in the Extent Report
         ExtentTest test = extent.createTest(result.getMethod().getMethodName());
         extentTest.set(test);
     }
 
     @Override
     public void onTestSuccess(ITestResult result) {
-        // Mark test as passed
         extentTest.get().log(Status.PASS, "Test Passed: " + result.getMethod().getMethodName());
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
-        // Mark test as failed
         extentTest.get().log(Status.FAIL, "Test Failed: " + result.getMethod().getMethodName());
         extentTest.get().log(Status.FAIL, result.getThrowable());
 
-        // Capture screenshot for failed test
         WebDriver driver = ((BaseClass) result.getInstance()).driver;
         String screenshotPath = Screenshot.captureScreenshot(driver, result.getMethod().getMethodName());
         attachscreenshot(screenshotPath);
@@ -59,7 +53,6 @@ public class ReportListener extends BaseClass implements ITestListener {
 
     @Override
     public void onTestSkipped(ITestResult result) {
-        // Mark test as skipped
         extentTest.get().log(Status.SKIP, "Test Skipped: " + result.getMethod().getMethodName());
         extentTest.get().log(Status.SKIP, result.getThrowable());
     }

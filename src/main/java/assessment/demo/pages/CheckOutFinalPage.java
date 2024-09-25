@@ -8,6 +8,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.time.Duration;
+
 public class CheckOutFinalPage {
     WebDriver driver;
 
@@ -28,13 +30,16 @@ public class CheckOutFinalPage {
         ReportListener.attachscreenshot(checkoutscreenshotpath);
 
         driver.findElement(By.id(finalaction)).click();
-        Thread.sleep(2000);
+//        Thread.sleep(2000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 
         leftMenuIcon.click();
-        Thread.sleep(1000);
+//        Thread.sleep(1000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
 
         logoutButton.click();
-        Thread.sleep(1000);
+//        Thread.sleep(1000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 
     }
 
