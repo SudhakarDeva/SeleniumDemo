@@ -40,6 +40,7 @@ public class Loginpage extends Reusables {
         clearandentervalues(password,pwd);
         driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
         Thread.sleep(2000);
+        getscreenshot("Loginpage","Login details",driver);
         loginbutton.click();
         System.out.println("Login actions completed");
         Thread.sleep(2000);

@@ -18,7 +18,7 @@ public class ExtentReportSetup {
     }
 
     public static ExtentReports createInstance() {
-        sparkReporter = new ExtentSparkReporter("./extent-reports/SparkReport.html");
+        sparkReporter = new ExtentSparkReporter("./extent-reports/DemoTestReport.html");
         sparkReporter.config().setDocumentTitle("Automation Demo Report");
         sparkReporter.config().setReportName("Selenium Test Results");
         sparkReporter.config().setTheme(Theme.STANDARD);

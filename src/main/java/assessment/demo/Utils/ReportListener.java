@@ -24,7 +24,8 @@ public class ReportListener extends BaseClass implements ITestListener {
 
     @Override
     public void onTestStart(ITestResult result) {
-        ExtentTest test = extent.createTest(result.getMethod().getMethodName());
+        Object[] parameters = result.getParameters();
+        ExtentTest test = extent.createTest(parameters[0].toString(),parameters[1].toString());
         extentTest.set(test);
     }
 
@@ -40,12 +41,12 @@ public class ReportListener extends BaseClass implements ITestListener {
 
         WebDriver driver = ((BaseClass) result.getInstance()).driver;
         String screenshotPath = Screenshot.captureScreenshot(driver, "FailureScreen");
-        attachscreenshot(screenshotPath);
+        attachscreenshot(screenshotPath,"FailureScreen");
     }
 
-    public static void attachscreenshot(String screenshotPath) {
+    public static void attachscreenshot(String screenshotPath,String screenshotname) {
         try {
-            extentTest.get().addScreenCaptureFromPath(screenshotPath);
+            extentTest.get().addScreenCaptureFromPath(screenshotPath,screenshotname);
         } catch (Exception e) {
             extentTest.get().log(Status.FAIL, "Screenshot attachment failed: " + e.getMessage());
         }

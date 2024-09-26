@@ -22,7 +22,7 @@ public class CartPage extends Reusables {
     WebElement checkoutbutton;
 
     public void clickCheckout() throws InterruptedException {
-        getscreenshot("CartPage",driver);
+        getscreenshot("CartPage","Cart page with items added",driver);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         Thread.sleep(2000);
         checkoutbutton.click();

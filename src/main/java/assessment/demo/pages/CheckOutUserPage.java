@@ -32,6 +32,7 @@ public class CheckOutUserPage extends Reusables {
         clearandentervalues(postalcodefield,postalcode);
         Thread.sleep(2000);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+        getscreenshot("Userpage","Customer details",driver);
         continuebutton.click();
         Thread.sleep(2000);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));

@@ -27,11 +27,11 @@ public class CheckOutFinalPage extends Reusables {
 
     public void checkoutActions(String finalaction) throws InterruptedException {
 
-        getscreenshot("CheckoutFinalPage",driver);
+        getscreenshot("CheckoutFinalPage","Final page of checkout",driver);
         driver.findElement(By.id(finalaction)).click();
         Thread.sleep(2000);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
-        getscreenshot("OnFinalAction",driver);
+        getscreenshot("OnFinalAction","Page after applying final action: "+finalaction,driver);
     }
 
     public void logout() throws InterruptedException {

@@ -14,12 +14,12 @@ import java.util.concurrent.TimeUnit;
 public class Main {
     public static void main(String[] args) throws InterruptedException {
 
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.get("https://www.saucedemo.com/");
-        Thread.sleep(3000);
-        driver.quit();
+//        WebDriverManager.chromedriver().setup();
+//        WebDriver driver = new ChromeDriver();
+//        driver.manage().window().maximize();
+//        driver.get("https://www.saucedemo.com/");
+//        Thread.sleep(3000);
+//        driver.quit();
 
 
          }

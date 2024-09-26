@@ -12,10 +12,10 @@ public class Reusables extends BaseClass {
         element.sendKeys(text);
     }
 
-    public void getscreenshot(String filename,WebDriver driver)
+    public void getscreenshot(String filename,String screenshotname,WebDriver driver)
     {
         String checkoutscreenshotpath = Screenshot.captureScreenshot(driver,filename);
-        ReportListener.attachscreenshot(checkoutscreenshotpath);
+        ReportListener.attachscreenshot(checkoutscreenshotpath,screenshotname);
     }
 
 }

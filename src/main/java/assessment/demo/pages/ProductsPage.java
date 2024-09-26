@@ -61,7 +61,7 @@ public class ProductsPage extends Reusables {
                 rawprice = Double.parseDouble(temp);
                 pricelist.add(rawprice);
             }
-            getscreenshot(sortoption, driver);
+            getscreenshot(sortoption,"Page on applying sort option",driver);
 
             //verify the sorting order
             for (int i = 0; i < pricelist.size() - 1; i++) {

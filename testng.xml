@@ -3,7 +3,7 @@
 <suite name="SeleniumDemo Automation Suite" verbose="1" parallel="false">
 
     <listeners>
-        <listener class-name="org.testng.reporters.EmailableReporter2"/>
+<!--        <listener class-name="org.testng.reporters.EmailableReporter2"/>-->
         <listener class-name="assessment.demo.Utils.ReportListener"/>
     </listeners>
         <test name="SeleniumDemo Tests">
